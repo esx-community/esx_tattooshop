@@ -10,6 +10,7 @@ server_scripts {
 	'locales/br.lua',
 	'locales/en.lua',
 	'locales/fr.lua',
+	'locales/es.lua',
 	'locales/sv.lua',
 	'config.lua',
 	'server/main.lua'
@@ -20,6 +21,7 @@ client_scripts {
 	'locales/br.lua',
 	'locales/en.lua',
 	'locales/fr.lua',
+	'locales/es.lua',
 	'locales/sv.lua',
 	'config.lua',
 	'client/tattooList.lua',
