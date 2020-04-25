@@ -23,6 +23,7 @@ end)
 
 function OpenShopMenu()
 	local elements = {}
+	
 
 	for k,v in pairs(Config.TattooCategories) do
 		table.insert(elements, {label= v.name, value = v.value})
@@ -45,32 +46,33 @@ function OpenShopMenu()
 
 			for k,v in pairs(Config.TattooList[data.current.value]) do
 				table.insert(elements, {
-					label = _U('tattoo_item', k, _U('money_amount', ESX.Math.GroupDigits(v.price))),
+					label = ('%s - <span style="color:green;">%s EUR</span>'):format(v.name, ESX.Math.GroupDigits(v.price)),
 					value = k,
 					price = v.price
 				})
 			end
 
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'tattoo_shop_categories', {
-				title    = _U('tattoos') .. ' | '..currentLabel,
-				align    = 'bottom-right',
-				elements = elements
-			}, function(data2, menu2)
-				local price = data2.current.price
-				if data2.current.value ~= nil then
+                title    = _U('tattoos') .. ' | '..currentLabel,
+                align    = 'bottom-right',
+                elements = elements
+            }, function(data2, menu2)
+                local price = data2.current.price
 
-					ESX.TriggerServerCallback('esx_tattooshop:purchaseTattoo', function(success)
-						if success then
-							table.insert(currentTattoos, {collection = currentValue, texture = data2.current.value})
-						end
-					end, currentTattoos, price, {collection = currentValue, texture = data2.current.value})
+                if data2.current.value ~= nil then
 
-				else
-					OpenShopMenu()
-					RenderScriptCams(false, false, 0, 1, 0)
-					DestroyCam(cam, false)
-					cleanPlayer()
-				end
+                    ESX.TriggerServerCallback('esx_tattooshop:purchaseTattoo', function(success)
+                        if success then
+                            table.insert(currentTattoos, {collection = currentValue, texture = data2.current.value})
+                        end
+                    end, currentTattoos, price, {collection = currentValue, texture = data2.current.value})
+
+                else
+                    OpenShopMenu()
+                    RenderScriptCams(false, false, 0, 1, 0)
+                    DestroyCam(cam, false)
+                    cleanPlayer()
+                end
 
 			end, function(data2, menu2)
 				menu2.close()
@@ -84,7 +86,9 @@ function OpenShopMenu()
 			end)
 		end
 	end, function(data, menu)
+                local playerPed = PlayerPedId()
 		menu.close()
+                FreezeEntityPosition(playerPed, false)
 		setPedSkin()
 	end)
 end
@@ -165,34 +169,39 @@ end)
 
 -- Key Controls
 Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(0)
+    while true do
+        Citizen.Wait(0)
 
-		if CurrentAction then
-			ESX.ShowHelpNotification(CurrentActionMsg)
+        if CurrentAction then
+            ESX.ShowHelpNotification(CurrentActionMsg)
 
-			if IsControlJustReleased(0, 38) then
-				if CurrentAction == 'tattoo_shop' then
-					OpenShopMenu()
-				end
-				CurrentAction = nil
-			end
-		else
-			Citizen.Wait(500)
-		end
-	end
+            if IsControlJustReleased(0, 38) then
+                if CurrentAction == 'tattoo_shop' then
+                    local playerPed = PlayerPedId()
+                    FreezeEntityPosition(playerPed, true)
+                    OpenShopMenu()
+                end
+                CurrentAction = nil
+            end
+        else
+            Citizen.Wait(500)
+        end
+    end
 end)
 
 function setPedSkin()
-	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-		TriggerEvent('skinchanger:loadSkin', skin)
-	end)
+local playerPed = PlayerPedId()
+                        
+                ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+                TriggerEvent('skinchanger:loadSkin', skin)
+    end)
 
-	Citizen.Wait(1000)
+    Citizen.Wait(1000)
+    FreezeEntityPosition(playerPed, false)
 
-	for k,v in pairs(currentTattoos) do
-		ApplyPedOverlay(PlayerPedId(), GetHashKey(v.collection), GetHashKey(Config.TattooList[v.collection][v.texture].nameHash))
-	end
+    for k,v in pairs(currentTattoos) do
+        ApplyPedOverlay(PlayerPedId(), GetHashKey(v.collection), GetHashKey(Config.TattooList[v.collection][v.texture].nameHash))
+    end
 end
 
 function drawTattoo(current, collection)
