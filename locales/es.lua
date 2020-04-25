@@ -7,5 +7,25 @@ Locales['es'] = {
   ['tattoos']            = 'tattoos',
   ['tattoo_shop']        = 'tienda de tattoo',
   ['bought_tattoo']      = 'te has ~y~tatuado~s~ por ~r~%s€~s~, precio de colega',
-  ['not_enough_money']   = 'no tienes dinero suficiente, te faltan ~r~%s€~s~'
+  ['not_enough_money']   = 'no tienes dinero suficiente, te faltan ~r~%s€~s~',
+  
+  ['business']  = 'Negocios',
+  ['hipster']  = 'Hipster',
+  ['biker']  = 'Moteros',
+  ['airraces']  = 'Carreras aereas',
+  ['beach']  = 'Playa',
+  ['christmas2']  = 'Navidad',
+  ['gunrunning']  = 'Tiroteo',
+  ['importexport']  = 'Importacion/Exportacion',
+  ['lowrider2']  = 'Lowrider2',
+  ['lowride']  = 'Lowrider',
+  ['luxe']  = 'Lujo',
+  ['luxe2']  = 'Lujo 2',
+  ['multiplayer']  = 'Multijugador',
+  ['vinewood']  = 'Vinewood',
+  ['stunt']  = 'Acrobata',
+  ['smuggler']  = 'Contrabandista',
+  ['heist3']  = 'Asalto',
+  ['christmas2018']  = 'Navidad 2018',
+  ['christmas2017']  = 'Navidad 2017'
 }
