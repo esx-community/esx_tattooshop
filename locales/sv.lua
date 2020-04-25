@@ -7,5 +7,25 @@ Locales['sv'] = {
   ['tattoos']            = 'tatueringar',
   ['tattoo_shop']        = 'tatueringsaffär',
   ['bought_tattoo']      = 'du köpte ~y~en tatuering~s~ för ~r~%s SEK~s~',
-  ['not_enough_money']   = 'du har ~r~inte råd~s~ för denna ~y~tatuering~s~! Du saknar ~r~%s SEK~s~'
+  ['not_enough_money']   = 'du har ~r~inte råd~s~ för denna ~y~tatuering~s~! Du saknar ~r~%s SEK~s~',
+  
+  ['business']  = 'Negocios',
+  ['hipster']  = 'Hipster',
+  ['biker']  = 'Motoqueiro',
+  ['airraces']  = 'Corridas aereas',
+  ['beach']  = 'Praia',
+  ['christmas2']  = 'Natal',
+  ['gunrunning']  = 'Tiroteio',
+  ['importexport']  = 'Importacao/Exportacao',
+  ['lowrider2']  = 'Lowrider2',
+  ['lowride']  = 'Lowrider',
+  ['luxe']  = 'Luxo',
+  ['luxe2']  = 'Luxo 2',
+  ['multiplayer']  = 'Multijogador',
+  ['vinewood']  = 'Vinewood',
+  ['stunt']  = 'Facanha',
+  ['smuggler']  = 'Contrabandista',
+  ['heist3']  = 'Assalto',
+  ['christmas2018']  = 'Natal 2018',
+  ['christmas2017']  = 'Natal 2017'
 }

@@ -1,11 +1,30 @@
 Locales['br'] = {
   ['tattoo_shop_prompt'] = 'pressione ~INPUT_PICKUP~ para acessar a ~y~loja de tatuagens~s~.',
   ['money_amount']       = '<span style="color:green;">$%s</span>',
-  ['part']               = 'parte %s',
   ['go_back_to_menu']    = '< Volte',
   ['tattoo_item']        = 'tatuagem %s - %s',
   ['tattoos']            = 'tatuagens',
   ['tattoo_shop']        = 'loja de tatuagens',
   ['bought_tattoo']      = 'você comprou uma ~y~tatuagem~s~ por ~r~$%s~s~',
-  ['not_enough_money']   = 'você não tem ~r~dinheiro suficiente~s~ para aquela tatuagem! Está faltando ~r~$%s~s~'
+  ['not_enough_money']   = 'você não tem ~r~dinheiro suficiente~s~ para aquela tatuagem! Está faltando ~r~$%s~s~',
+  
+  ['business']  = 'Negocios',
+  ['hipster']  = 'Hipster',
+  ['biker']  = 'Motoqueiro',
+  ['airraces']  = 'Corridas aereas',
+  ['beach']  = 'Praia',
+  ['christmas2']  = 'Natal',
+  ['gunrunning']  = 'Tiroteio',
+  ['importexport']  = 'Importacao/Exportacao',
+  ['lowrider2']  = 'Lowrider2',
+  ['lowride']  = 'Lowrider',
+  ['luxe']  = 'Luxo',
+  ['luxe2']  = 'Luxo 2',
+  ['multiplayer']  = 'Multijogador',
+  ['vinewood']  = 'Vinewood',
+  ['stunt']  = 'Facanha',
+  ['smuggler']  = 'Contrabandista',
+  ['heist3']  = 'Assalto',
+  ['christmas2018']  = 'Natal 2018',
+  ['christmas2017']  = 'Natal 2017'
 }
