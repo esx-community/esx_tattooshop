@@ -254,3 +254,18 @@ function cleanPlayer()
 		ApplyPedOverlay(PlayerPedId(), GetHashKey(v.collection), GetHashKey(Config.TattooList[v.collection][v.texture].nameHash))
 	end
 end
+
+-- taken from https://forum.cfx.re/t/release-esx-tattoos-shops/51496/98?u=btwlouis
+RegisterNetEvent('esx_ambulancejob:revive')
+AddEventHandler('esx_ambulancejob:revive', function()
+	Citizen.Wait(5000)
+	ESX.TriggerServerCallback('esx_tattooshop:requestPlayerTattoos', function(tattooList)
+		if tattooList then
+			for k,v in pairs(tattooList) do
+				ApplyPedOverlay(PlayerPedId(), GetHashKey(v.collection), GetHashKey(Config.TattooList[v.collection][v.texture].nameHash))
+			end
+
+			currentTattoos = tattooList
+		end
+	end)
+end)
